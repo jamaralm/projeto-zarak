@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Contato — DevStudio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        form{max-width:600px;margin-top:1rem}
+        label{display:block;margin-top:.5rem}
+        input,textarea,select{width:100%;padding:.5rem;margin-top:.25rem;border:1px solid #ccc;border-radius:4px}
+        button{margin-top:1rem;padding:.5rem 1rem;background:var(--accent);color:white;border:none;border-radius:6px}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>DevStudio</h1>
+            <nav aria-label="Menu principal">
+                <a href="index.html">Home</a>
+                <a href="quem-somos.html">Quem somos</a>
+                <a href="portfolio.html">Portfólio</a>
+                <a href="equipe.html">Equipe</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Entre em contato</h2>
+        <p>Envie sua mensagem e retornaremos o mais breve possível.</p>
+
+        <form onsubmit="alert('Mensagem enviada com sucesso! (simulação)'); return false;">
+            <label for="nome">Nome completo:</label>
+            <input type="text" id="nome" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" required>
+
+            <label for="assunto">Assunto:</label>
+            <select id="assunto">
+                <option>Orçamento</option>
+                <option>Parceria</option>
+                <option>Suporte</option>
+            </select>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" rows="6" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+
+        <section style="margin-top:2rem;">
+            <h3>Outros meios</h3>
+            <ul>
+                <li>Email: contato@devstudio.exemplo</li>
+                <li>Endereço: Rua das Flores, 123 — Centro</li>
+                <li>Telefone: (11) 99999-9999</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
