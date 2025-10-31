@@ -41,8 +41,10 @@ h1 {
   font-size: 1.5rem;
 }
 
+/* Alteração: Links da navbar no mobile agora ocupam a largura total */
 nav a {
-  display: inline-block;
+  display: block; /* Mudar para block para empilhar verticalmente no mobile */
+  padding: 0.3rem 0; /* Adicionar padding vertical para facilitar o toque */
   margin-right: 1rem;
   color: var(--accent);
   text-decoration: none;
@@ -145,7 +147,10 @@ footer p {
     justify-content: space-between;
   }
 
+  /* Alteração: No desktop, os links voltam a ser inline-block */
   nav a {
+    display: inline-block; /* Alinha horizontalmente no desktop */
+    padding: 0; /* Remove o padding extra do mobile */
     margin-right: 1.5rem;
   }
 
