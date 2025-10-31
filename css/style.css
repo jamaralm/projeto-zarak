@@ -1,5 +1,5 @@
 :root {
-  --accent: #0a74da;
+  --accent: #2a4260;
   --muted: #666;
 }
 
@@ -12,7 +12,7 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   margin: 0;
-  color: #222;
+  color: #2a4260;
   background: #fff;
 }
 
@@ -25,16 +25,33 @@ body {
 /* ---------- HEADER ---------- */
 header,
 footer {
-  background: #f7f9fc;
+  background: #eaeaea;
   padding: 1rem 2rem;
 }
 
-header {
+#navbar-placeholder {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between; /* separa o título à esquerda e os links à direita */
+  padding: 1rem 2rem;
+  width: 100%;
 }
+
+
+/* MOBILE: empilha tudo */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  header nav.navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
 
 h1 {
   margin: 0;
