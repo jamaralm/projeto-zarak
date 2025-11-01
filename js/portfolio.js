@@ -3,23 +3,23 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             id: '1',
             nome: 'Conversor de Binario',
-            foto: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80',
+            foto: 'https://graphicsauce.co/free-placeholder-logo/wp-content/uploads/2024/08/Free-PlaceHolder-Logo.jpg',
             alt: 'Conversor de Binario',
             resumo: 'Plataforma completa de vendas online, com painel administrativo e sistema de pagamento integrado.',
         },
         {
-            id: '1',
-            nome: 'Conversor de Binario',
-            foto: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80',
-            alt: 'Conversor de Binario',
-            resumo: 'Plataforma completa de vendas online, com painel administrativo e sistema de pagamento integrado.',
+            id: '2',
+            nome: 'Sistema de Gestão Financeira',
+            foto: 'https://graphicsauce.co/free-placeholder-logo/wp-content/uploads/2024/08/Free-PlaceHolder-Logo.jpg',
+            alt: 'Sistema de Gestão Financeira',
+            resumo: 'Plataforma SaaS (Software as a Service) para controle de fluxo de caixa e emissão de notas fiscais.',
         },
         {
-            id: '1',
-            nome: 'Conversor de Binario',
-            foto: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80',
-            alt: 'Conversor de Binario',
-            resumo: 'Plataforma completa de vendas online, com painel administrativo e sistema de pagamento integrado.',
+            id: '3',
+            nome: 'App de Delivery Local (Mobile)',
+            foto: 'https://graphicsauce.co/free-placeholder-logo/wp-content/uploads/2024/08/Free-PlaceHolder-Logo.jpg',
+            alt: 'App de Delivery Local',
+            resumo: 'Solução móvel para conectar vendedores e consumidores em uma determinada região, otimizando entregas.',
         }   
     ]
 
