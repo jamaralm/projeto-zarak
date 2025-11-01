@@ -68,6 +68,12 @@ nav a {
   font-weight: 500;
 }
 
+nav a.active {
+  color: #2a4260; /* um azul mais escuro */
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent);
+}
+
 nav a:hover {
   text-decoration: underline;
 }
@@ -227,7 +233,7 @@ footer p {
 }
 
 .mini-bio-btn {
-  display: inline-block;
+  display: block;
   padding: 0.5rem 1rem;
   background-color: var(--accent);
   color: white;
@@ -237,6 +243,9 @@ footer p {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease, opacity 0.2s ease;
+  margin-left: auto;
+  
+  width: fit-content;
 }
 .mini-bio-btn:hover {
   background-color: #084b9e;
