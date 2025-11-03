@@ -3,21 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             id: '1',
             nome: 'Conversor de Binario',
-            foto: 'https://graphicsauce.co/free-placeholder-logo/wp-content/uploads/2024/08/Free-PlaceHolder-Logo.jpg',
             alt: 'Conversor de Binario',
             resumo: 'Plataforma completa de vendas online, com painel administrativo e sistema de pagamento integrado.',
         },
         {
             id: '2',
-            nome: 'Sistema de Gestão Financeira',
-            foto: 'https://graphicsauce.co/free-placeholder-logo/wp-content/uploads/2024/08/Free-PlaceHolder-Logo.jpg',
-            alt: 'Sistema de Gestão Financeira',
-            resumo: 'Plataforma SaaS (Software as a Service) para controle de fluxo de caixa e emissão de notas fiscais.',
+            nome: 'TAG Paramentação',
+            alt: 'TAG Paramentação',
+            resumo: 'Plataforma web desenvolvida para a empresa TAG Paramentação, voltada à gestão e divulgação de vestimentas hospitalares. O sistema conta com um site institucional moderno e responsivo e um backend robusto em Node.js e Express, garantindo integração entre dados, produtos e área administrativa com foco em desempenho e usabilidade.',
         },
         {
             id: '3',
             nome: 'App de Delivery Local (Mobile)',
-            foto: 'https://graphicsauce.co/free-placeholder-logo/wp-content/uploads/2024/08/Free-PlaceHolder-Logo.jpg',
             alt: 'App de Delivery Local',
             resumo: 'Solução móvel para conectar vendedores e consumidores em uma determinada região, otimizando entregas.',
         }   
@@ -30,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
             <article class="card">
                 <h3>${project.nome}</h3>
                 <p>${project.resumo}</p>
-                <img src="${project.foto}" alt="${project.alt}" style="max-width:100%;border-radius:6px;">
             </article>
         `
     }

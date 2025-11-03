@@ -19,9 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             alt: 'Samuel Schneweiss',
             resumo: 'Cuida da identidade visual, experiência do usuário e design de interfaces.',
             bioCompleta: `
-                <p>Designer e desenvolvedor especializado em experiência do usuário e identidade visual. Além de atuar na DevStudio, Samuel criou o <strong>frontend</strong> e a <strong>identidade visual da TAG Paramentação</strong>, uma empresa do setor médico focada em vestimentas hospitalares.</p>
-                <p>Nesse projeto independente, uniu design limpo, performance e usabilidade, desenvolvendo uma presença digital moderna que reforça a credibilidade e o propósito da marca.</p>
-            `
+                <p>Designer e desenvolvedor especializado em experiência do usuário e identidade visual. Além de atuar na DevStudio, Samuel criou o fronted e a identidade visual da TAG Paramentação, uma empresa do setor médico focada em vestimentas hospitalares.</p>            `
         },
         {
             id: 'davi',

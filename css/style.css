@@ -166,18 +166,24 @@ footer p {
     margin-top: 2rem;
 }
 
+#team-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    align-items: start; /* <-- ESSENCIAL: evita que os outros se expandam */
+}
+
 /* Card Individual do Membro */
 .member {
-    border: 1px solid var(--card-border);
-    padding: 1.5rem;
-    border-radius: 12px;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    
     display: flex;
-    flex-direction: column; 
-    position: relative; /* Base para o posicionamento do botão */
-    min-height: 250px; /* Garante um tamanho mínimo para visualização */
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; /* opcional, se quiser sombra ou borda */
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    background: white;
+    min-height: 280px; /* ajusta se quiser altura padrão */
 }
 
 /* Contêiner para a Foto e o Título/Cargo (o que estará lado a lado) */
@@ -224,26 +230,22 @@ footer p {
 
 /* Botão "Ver Detalhes" (Mini Bio Button) */
 .mini-bio-btn {
-    /* Estilo de botão */
-    display: inline-block;
-    padding: 0.5rem 1rem;
+    display: block;
+    width: fit-content;
+    margin-top: 1rem;
     background-color: var(--accent);
     color: white;
     border: none;
     border-radius: 6px;
+    padding: 0.6rem 1.2rem;
     text-decoration: none;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s ease, opacity 0.2s ease;
-    
-    /* Posicionamento Fixo no canto inferior direito do CARD */
-    position: absolute;
-    bottom: 1.5rem; 
-    right: 1.5rem; 
 }
 
 .mini-bio-btn:hover {
-  background-color: #084b9e;
+    background-color: #084b9e;
 }
 
 /* Lógica da Mini Bio Escondida/Exibida */
