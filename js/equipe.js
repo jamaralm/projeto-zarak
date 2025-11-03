@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
             id: 'joao',
             nome: 'João Amaral',
             cargo: 'Líder de projeto',
-            foto: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80',
+            foto: 'https://i.imgur.com/nnKxCKb.png',
             alt: 'João Amaral',
             resumo: 'Responsável pela organização do time e pelo desenvolvimento front-end.',
             bioCompleta: `
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
             id: 'samuel',
             nome: 'Samuel Schneweiss',
             cargo: 'UI/UX Designer',
-            foto: 'https://images.unsplash.com/photo-1545996124-1a5f3b6f6c1e?w=400&q=80',
+            foto: 'https://i.imgur.com/1seyMZS.png',
             alt: 'Samuel Schneweiss',
             resumo: 'Cuida da identidade visual, experiência do usuário e design de interfaces.',
             bioCompleta: `
@@ -27,11 +27,22 @@ document.addEventListener("DOMContentLoaded", () => {
             id: 'davi',
             nome: 'Davi Chaves',
             cargo: 'Back-end Developer',
-            foto: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&q=80',
+            foto: 'https://i.imgur.com/synYJJy.png',
             alt: 'Davi Chaves',
             resumo: 'Responsável pela lógica do servidor, banco de dados e infraestrutura.',
             bioCompleta: `
                 <p>Especialista em infraestrutura e banco de dados. Desenvolveu a API que sustenta o sistema de relatórios automatizados da empresa.</p>
+            `
+        },
+        {
+            id: 'joaoantonio',
+            nome: 'João Antonio',
+            cargo: 'Front-end Developer',
+            foto: 'https://i.imgur.com/A7vGg1c.png',
+            alt: 'João Antonio',
+            resumo: 'Especialista em interfaces de usuário modernas, responsável por transformar designs em código interativo e responsivo.',
+            bioCompleta: `
+                <p>Com vasta experiência em React e Vue.js, João é o arquiteto de front-end que garante a performance e a usabilidade de nossos produtos. Seu foco é otimizar o tempo de carregamento e proporcionar a melhor experiência de navegação para os usuários finais.</p>
             `
         }
     ];
@@ -41,13 +52,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const createMemberCard = (member) => {
         return `
             <section class="member">
-                <h3>${member.nome} — ${member.cargo}</h3>
+            
+            <div class="member-header">
                 <img src="${member.foto}" alt="${member.alt}">
-                <p>${member.resumo}
-                    <a href="#" class="mini-bio-btn" data-member="${member.id}">Ver Detalhes</a>
-                </p>
-                <div class="mini-bio-content" id="bio-${member.id}"></div>
-            </section>
+                <div>
+                    <h3>${member.nome}</h3>
+                    <p style="margin: 0; color: var(--accent); font-weight: 500;">${member.cargo}</p>
+                </div>
+            </div>
+            
+            <p>${member.resumo}</p>
+            
+            <a href="#" class="mini-bio-btn" data-member="${member.id}">Ver Detalhes</a>
+            <div class="mini-bio-content" id="bio-${member.id}"></div>
+        </section>
         `;
     };
 

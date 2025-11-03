@@ -1,9 +1,11 @@
 :root {
   --accent: #2a4260;
   --muted: #666;
+  --light-bg: #eaeaea; /* Fundo mais claro para cabeçalho/rodapé */
+  --card-border: #e6eef9;
 }
 
-/* ---------- BASE ---------- */
+/* ---------- BASE E RESET ---------- */
 * {
   box-sizing: border-box;
 }
@@ -12,7 +14,7 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   margin: 0;
-  color: #2a4260;
+  color: var(--accent); /* Cor principal do texto */
   background: #fff;
 }
 
@@ -22,50 +24,37 @@ body {
   padding: 0 1rem;
 }
 
-/* ---------- HEADER ---------- */
+/* ---------- HEADER E NAVBAR (Reutilizável) ---------- */
 header,
 footer {
-  background: #eaeaea;
-  padding: 1rem 2rem;
+  background: var(--light-bg);
+  padding: 1rem 0; /* Ajuste o padding vertical */
 }
 
+/* Contêiner da Navbar injetada por JS */
 #navbar-placeholder {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* separa o título à esquerda e os links à direita */
-  padding: 1rem 2rem;
-  width: 100%;
+  justify-content: space-between; /* Separa logo/título do menu */
+  padding: 0 1rem; /* Adiciona padding interno */
+  max-width: 1000px;
+  margin: 0 auto;
 }
-
-
-/* MOBILE: empilha tudo */
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  header nav.navbar {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-}
-
 
 h1 {
   margin: 0;
   font-size: 1.5rem;
 }
 
-/* Alteração: Links da navbar no mobile agora ocupam a largura total */
+/* Estilo dos links no Mobile (empilhados e como blocos) */
 nav a {
-  display: block; /* Mudar para block para empilhar verticalmente no mobile */
-  padding: 0.3rem 0; /* Adicionar padding vertical para facilitar o toque */
+  display: block; 
+  padding: 0.3rem 0;
   margin-right: 1rem;
   color: var(--accent);
   text-decoration: none;
   font-weight: 500;
+  transition: text-decoration 0.2s;
 }
 
 nav a:hover {
@@ -91,6 +80,7 @@ nav a:hover {
   margin-top: 0;
 }
 
+/* ---------- CTA (Call to Action) PADRÃO ---------- */
 .cta {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -99,6 +89,7 @@ nav a:hover {
   border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
+  transition: opacity 0.2s;
 }
 
 .cta:hover {
@@ -114,15 +105,16 @@ nav a:hover {
 .cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 1.5rem; /* Aumento sutil no gap */
   margin-top: 1rem;
 }
 
 .card {
-  border: 1px solid #e6eef9;
-  padding: 1rem;
+  border: 1px solid var(--card-border);
+  padding: 1.5rem; /* Aumento sutil no padding */
   border-radius: 8px;
   background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Adiciona sombra leve */
 }
 
 .card h4 {
@@ -155,8 +147,155 @@ footer p {
   color: var(--muted);
 }
 
-/* ---------- MEDIA QUERIES ---------- */
-/* Tablets e acima */
+/* ================================================= */
+/* ESTILIZAÇÃO ESPECÍFICA DA EQUIPE         */
+/* ================================================= */
+
+/* Contêiner de todos os cards da equipe */
+.team-container {
+    display: grid;
+    /* 1 coluna no mobile, 2 colunas em telas maiores */
+    grid-template-columns: 1fr; 
+    gap: 2rem; 
+    margin-top: 2rem;
+}
+
+/* Card Individual do Membro */
+.member {
+    border: 1px solid var(--card-border);
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    
+    display: flex;
+    flex-direction: column; 
+    position: relative; /* Base para o posicionamento do botão */
+    min-height: 250px; /* Garante um tamanho mínimo para visualização */
+}
+
+/* Contêiner para a Foto e o Título/Cargo (o que estará lado a lado) */
+.member-header {
+    display: flex;
+    align-items: center; 
+    gap: 1.5rem; 
+    margin-bottom: 1rem;
+}
+
+/* Título e Cargo */
+.member-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    color: var(--accent);
+}
+
+.member-header p { /* O p do cargo */
+    margin: 0;
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Estilo da Imagem */
+.member img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    flex-shrink: 0; 
+}
+
+/* Resumo da Bio */
+.member > p { 
+    flex-grow: 1; 
+    margin-top: 0.5rem;
+    /* Reserva espaço extra no fim para não sobrepor o botão */
+    margin-bottom: 3.5rem; 
+    font-size: 0.95rem;
+}
+
+/* Botão "Ver Detalhes" (Mini Bio Button) */
+.mini-bio-btn {
+    /* Estilo de botão */
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+    
+    /* Posicionamento Fixo no canto inferior direito do CARD */
+    position: absolute;
+    bottom: 1.5rem; 
+    right: 1.5rem; 
+}
+
+.mini-bio-btn:hover {
+  background-color: #084b9e;
+}
+
+/* Lógica da Mini Bio Escondida/Exibida */
+.mini-bio-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  background: #f9fbff;
+  border-left: 3px solid #00c7e5; /* Cor de destaque diferente */
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  margin-right: 0;
+  padding: 0 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.mini-bio-content.open {
+  padding: 1rem;
+  max-height: 800px; /* Valor alto para garantir abertura */
+}
+
+.mini-bio-content p {
+  margin: 0.5rem 0;
+}
+
+/* Animação */
+@keyframes fadeInBio {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mini-bio-content.open {
+  animation: fadeInBio 0.4s ease;
+}
+
+
+/* ================================================= */
+/* MEDIA QUERIES (Responsividade)      */
+/* ================================================= */
+
+/* MOBILE: Configurações específicas para telas menores que 600px */
+@media (max-width: 600px) {
+  /* Navbar (já está em coluna, reitera a estrutura do JS) */
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .mini-bio-btn {
+    /* Ajusta a posição do botão para telas pequenas */
+    bottom: 1rem; 
+    right: 1rem;
+  }
+}
+
+/* Tablets e acima (reverte o display da navbar para inline) */
 @media (min-width: 600px) {
   header {
     flex-direction: row;
@@ -164,10 +303,10 @@ footer p {
     justify-content: space-between;
   }
 
-  /* Alteração: No desktop, os links voltam a ser inline-block */
+  /* Links da Navbar voltam a ser inline-block */
   nav a {
-    display: inline-block; /* Alinha horizontalmente no desktop */
-    padding: 0; /* Remove o padding extra do mobile */
+    display: inline-block;
+    padding: 0; 
     margin-right: 1.5rem;
   }
 
@@ -178,6 +317,11 @@ footer p {
 
   .hero img {
     max-width: 45%;
+  }
+
+  /* Cards da Equipe em 2 colunas */
+  .team-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -194,59 +338,9 @@ footer p {
   .hero h2 {
     font-size: 1.6rem;
   }
-}
-
-
-.mini-bio-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  background: #f9fbff;
-  border-left: 3px solid var(--accent);
-  border-radius: 6px;
-  margin-top: 0.5rem;
-  padding: 0 1rem;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.mini-bio-content.open {
-  padding: 1rem;
-  max-height: 400px;
-}
-
-.mini-bio-content p {
-  margin: 0.5rem 0;
-}
-
-.mini-bio-content img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.mini-bio-btn {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: var(--accent);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease, opacity 0.2s ease;
-}
-.mini-bio-btn:hover {
-  background-color: #084b9e;
-}
-
-@keyframes fadeInBio {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.mini-bio-content.open {
-  animation: fadeInBio 0.4s ease;
+  
+  /* Se você quiser 3 colunas para a equipe em desktop, use 300px minmax */
+  .team-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 }
