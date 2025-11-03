@@ -57,6 +57,12 @@ nav a {
   transition: text-decoration 0.2s;
 }
 
+nav a.active {
+  color: #2a4260; /* um azul mais escuro */
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent);
+}
+
 nav a:hover {
   text-decoration: underline;
 }
@@ -338,9 +344,59 @@ footer p {
   .hero h2 {
     font-size: 1.6rem;
   }
-  
-  /* Se você quiser 3 colunas para a equipe em desktop, use 300px minmax */
-  .team-container {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
+}
+
+
+.mini-bio-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  background: #f9fbff;
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  padding: 0 1rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.mini-bio-content.open {
+  padding: 1rem;
+  max-height: 400px;
+}
+
+.mini-bio-content p {
+  margin: 0.5rem 0;
+}
+
+.mini-bio-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.mini-bio-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+.mini-bio-btn:hover {
+  background-color: #084b9e;
+}
+
+@keyframes fadeInBio {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mini-bio-content.open {
+  animation: fadeInBio 0.4s ease;
 }
