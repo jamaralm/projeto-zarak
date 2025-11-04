@@ -402,3 +402,65 @@ footer p {
 .mini-bio-content.open {
   animation: fadeInBio 0.4s ease;
 }
+
+#servicos {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+#servicos h2 {
+  color: var(--muted);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+#servicos p {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Tabela principal */
+.tabela-servicos {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden; /* Mantém bordas arredondadas no topo */
+}
+
+.tabela-servicos th,
+.tabela-servicos td {
+  border: 1px solid var(--card-border);
+  padding: 0.8rem 1rem;
+  text-align: left;
+}
+
+.tabela-servicos th {
+  background-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tabela-servicos tr:nth-child(even) {
+  background-color: var(--light-bg);
+}
+
+.tabela-servicos tr:hover {
+  background-color: #dbe5f5;
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 700px) {
+  .tabela-servicos th,
+  .tabela-servicos td {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  #servicos h2 {
+    font-size: 1.5rem;
+  }
+}
