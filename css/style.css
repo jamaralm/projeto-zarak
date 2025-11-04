@@ -31,14 +31,32 @@ footer {
   padding: 1rem 0; /* Ajuste o padding vertical */
 }
 
-/* Contêiner da Navbar injetada por JS */
+.menu-toggle {
+    display: none; /* Esconde por padrão em telas grandes */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--accent);
+    padding: 0.2rem 0.5rem;
+    z-index: 100; /* Garante que fique acima de outros elementos */
+}
+
+/* Reorganiza o contêiner da navbar injetada para melhor alinhamento */
 #navbar-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Separa logo/título do menu */
-  padding: 0 1rem; /* Adiciona padding interno */
-  max-width: 1000px;
-  margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Estilo para a navbar no mobile (escondida por padrão) */
+.navbar {
+    /* Garante que a nav não quebre a linha no desktop */
+    display: flex; 
+    align-items: center;
 }
 
 h1 {
@@ -301,6 +319,61 @@ footer p {
     bottom: 1rem; 
     right: 1rem;
   }
+
+  /* 1. Mostra o botão sanduíche */
+    .menu-toggle {
+        display: block; 
+    }
+
+    /* 2. Oculta a navegação por padrão (no mobile) */
+    .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Posiciona abaixo do cabeçalho */
+        left: 0;
+        width: 100%;
+        background: var(--light-bg);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    /* 3. Estilo para o menu ABERTO no mobile (adicionada via JS) */
+    .navbar.open {
+        display: flex;
+    }
+
+    /* 4. Garante que os itens de menu sejam blocos e centralizados */
+    nav a {
+        display: block;
+        padding: 0.8rem 1rem;
+        margin: 0.5rem 0; /* Espaçamento vertical entre links */
+        border-bottom: none; /* Remove a borda para o layout em bloco */
+    }
+
+    nav a.active {
+        border-bottom: none;
+        background: rgba(0, 0, 0, 0.05); /* Um leve destaque para a página atual */
+        border-radius: 4px;
+    }
+
+    /* Ajusta a exibição do cabeçalho no mobile */
+    header {
+        position: relative; /* Importante para o posicionamento do menu */
+    }
+
+    #navbar-placeholder {
+        /* Alinha título e botão sanduíche */
+        padding: 0 1rem;
+    }
+
+    /* ... outras regras de mobile ... */
+    .mini-bio-btn {
+        /* Ajusta a posição do botão para telas pequenas */
+        bottom: 1rem; 
+        right: 1rem;
+    }
 }
 
 /* Tablets e acima (reverte o display da navbar para inline) */
@@ -331,6 +404,32 @@ footer p {
   .team-container {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+@media (min-width: 601px) { /* Mude de 600px para 601px para evitar conflito com max-width */
+    /* Garante que o menu esteja visível no desktop */
+    .navbar {
+        display: flex !important; /* Sobrescreve 'display: none' do mobile */
+    }
+    
+    .menu-toggle {
+        display: none; /* Garante que o botão sanduíche esteja escondido no desktop */
+    }
+    
+    /* ... outras regras de desktop ... */
+    nav a {
+        display: inline-block;
+        padding: 0; 
+        margin-right: 1.5rem;
+        border-bottom: none; /* Garante que a borda só apareça no link ativo */
+    }
+    
+    nav a.active {
+        border-bottom: 2px solid var(--accent); /* Restaura a borda no link ativo para desktop */
+        font-weight: 700;
+    }
+    
+    /* ... outras regras de desktop ... */
 }
 
 /* Desktop largo */
